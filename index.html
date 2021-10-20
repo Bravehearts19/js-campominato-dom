@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Per il corretto funzionamento delle media query -->
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> <!-- Link Bootstrap -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Link Font-Awesome -->
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <title>Prato Fiorito</title>
+    </head>
+
+    <body>
+        <!-- Inizio header -->
+        <header>
+            <div class="container">
+                <div class="d-flex py-2">
+                    <div class="image_container pe-3">
+                        <img class="w-100" src="https://www.boolean.careers/images/misc/logo.png" alt="Logo Boolean">
+                    </div>
+
+                    <h1 class="fw-bold">Prato Fiorito: la Griglia</h1>
+
+                    <form class="d-flex ms-auto align-items-center">
+                        <h6 class="pe-2 m-0">Difficoltà:</h6>
+
+                        <select class="padding_select me-3" id="select_difficolta">
+                            <option value="1">Facile</option>
+                            <option value="2">Media</option>
+                            <option value="3">Difficile</option>
+                        </select>
+
+                        <button type="button"  class="btn text-nowrap" id="button_start_game">Avvia la partita</button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <!-- Fine header -->
+
+        <!-- Inizio main -->
+        <main>
+            <div class="container">
+                <div class="padding_main">
+                    <div id="container_board">
+
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Fine main -->
+
+        <!-- Inizio footer -->
+        <footer>
+            <div class="container">
+                <p class="m-0 py-3">Made with &hearts; by <a href="#">Boolean</a></p>
+            </div>
+        </footer>
+        <!-- Fine footer -->
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>

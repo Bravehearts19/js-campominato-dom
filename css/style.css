@@ -1,0 +1,46 @@
+.padding_select {
+    padding: .375rem .75rem;
+    padding-right: 4.5rem;
+}
+
+.image_container {
+    width: 20%;
+    height: auto;
+    object-fit: contain;
+}
+
+header,
+footer {
+    color: #001533;
+}
+
+main {
+    background-color: #7fffd4;
+}
+
+#container_board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.box {
+    min-height: 20px;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+}
+
+.clicked {
+    color: white;
+    background-color: #6495ed;
+}
+
+.padding_main {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
