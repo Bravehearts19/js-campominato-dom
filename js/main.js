@@ -63,7 +63,7 @@ function generateFlowerNumber(flowersNumber, cellsNumber) {
         }
     }
 
-    console.log("Questo è il vettore delle flowerCells", flowerCells);
+    console.log("Questo è il vettore delle flowerCells", orderArray(flowerCells));
     console.log("Questo è la lunghezza del vettore delle flowerCells", flowerCells.length);
 
     return flowerCells;
@@ -106,24 +106,14 @@ function onSingleCellClick(event) {
         this.classList.add("flower");
         
         setOverlayLose(clickedCellsNumber);
-
-        for (let i = 0; i < totalCells; i++) {
-            const singleCell = allCells[i];
-
-           for (let i = 0; i < flowerCells.length; i++) {
-               const indexFlower = flowerCells[i];
-               
-               if(parseInt(singleCell.textContent) === indexFlower) {
-                   singleCell.classList.add("flower")
-               }
-           }
-        }
+        displayAllFlowerCells(totalCells, allCells);
     } else {
         this.classList.add("clicked");
-        clickedCellsNumber++;
+        clickedCellsNumber = document.querySelectorAll(".clicked").length;
 
         if(clickedCellsNumber ===  safeCells) {
-            setOverlayWin();
+            setOverlayWin(clickedCellsNumber);
+            displayAllFlowerCells(totalCells, allCells);
         }
     }
 }
@@ -140,9 +130,30 @@ function setOverlayLose(clickedCellsNumber) {
     boardContainer.append(overlay);
 }
 
-function setOverlayWin() {
-    setOverlayLose(clickedCellsNumber);
+function setOverlayWin(clickedCellsNumber) {
+    const overlay = document.createElement("div");
+    overlay.classList.add("container_overlay");
+
+    const overlayText = document.createElement("p");
+    overlayText.classList.add("m-0");
     overlayText.textContent = `La partita è terminata, hai vinto totalizzando ${clickedCellsNumber} punti!`;
+    
+    overlay.append(overlayText);
+    boardContainer.append(overlay);
+}
+
+function displayAllFlowerCells(totalCells, allCells) {
+    for (let i = 0; i < totalCells; i++) {
+        const singleCell = allCells[i];
+
+       for (let i = 0; i < flowerCells.length; i++) {
+           const indexFlower = flowerCells[i];
+           
+           if(parseInt(singleCell.textContent) === indexFlower) {
+               singleCell.classList.add("flower")
+           }
+       }
+    }
 }
 
 
@@ -152,8 +163,16 @@ function setOverlayWin() {
  * @param {number} maxNumber - numero massimo possibile 
  * @returns {number}
  */
- function generateRandomNum(minNumber = 1, maxNumber = 10) {
+function generateRandomNum(minNumber = 1, maxNumber = 10) {
     const numRandom = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
-  
+
     return numRandom;
-  }
+}
+
+
+function orderArray(array) {
+
+const arrayOrdinato = array.sort((a, b) => a - b);
+
+return arrayOrdinato;
+}
