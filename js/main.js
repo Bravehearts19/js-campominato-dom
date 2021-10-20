@@ -5,7 +5,7 @@ let flowerCells = [];
 
 buttonAvvioPartita.addEventListener("click", function() {
     const flowersNumber = 16;
-    const level = selectDifficolta.value;
+    const level = parseInt(selectDifficolta.value);
 
     const totalCells = getCellsNumber(level);
 
@@ -21,11 +21,11 @@ buttonAvvioPartita.addEventListener("click", function() {
 function getCellsNumber(level) {
     let result;
 
-    if (parseInt(level) === 1) {
+    if (level === 1) {
             result = 100;
-    } else if (parseInt(level) === 2) {
+    } else if (level === 2) {
         result = 81;
-    } else if (parseInt(level) === 3) {
+    } else if (level === 3) {
         result = 49;
     }
 
@@ -54,7 +54,7 @@ function generateGrid(cellsNumber) {
 function generateFlowerNumber(flowersNumber, cellsNumber) {
     let flowerCells = [];
 
-    while(flowerCells.lenght < flowersNumber) {
+    while(flowerCells.length < flowersNumber) {
         const flowerCellIndex = generateRandomNum(1, cellsNumber);
         let indexExistInArray = flowerCells.includes(flowerCellIndex);
 
@@ -64,7 +64,7 @@ function generateFlowerNumber(flowersNumber, cellsNumber) {
     }
 
     console.log("Questo è il vettore delle flowerCells", flowerCells);
-    console.log("Questo è la lunghezza del vettore delle flowerCells", flowerCells.lenght);
+    console.log("Questo è la lunghezza del vettore delle flowerCells", flowerCells.length);
 
     return flowerCells;
 }
@@ -81,15 +81,7 @@ function generateSingleCell(i, cellSize) {
     cell.style.height = `${cellSize}%`;
     cell.style.width = `${cellSize}%`;
     /* cell.addEventListener("click", () => onSingleCellClick(i, cell )); */
-    cell.addEventListener("click", function(i) {
-        const isFlower = flowerCells.includes(i);
-
-        if(isFlower) {
-            this.classList.add("flower");
-        } else {
-            this.classList.add("clicked");
-        }
-    });
+    cell.addEventListener("click", onSingleCellClick);
 
     const cellText = document.createElement("p");
     cellText.classList.add("m-0");
@@ -102,7 +94,9 @@ function generateSingleCell(i, cellSize) {
 /**
  * 
  */
-/* function onSingleCellClick(i) {
+function onSingleCellClick(event) {
+    const i = parseInt(event.target.innerText);
+
     const isFlower = flowerCells.includes(i);
 
     if(isFlower) {
@@ -110,7 +104,7 @@ function generateSingleCell(i, cellSize) {
     } else {
         this.classList.add("clicked");
     }
-} */
+}
 
 
 /**

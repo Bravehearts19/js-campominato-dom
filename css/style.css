@@ -19,12 +19,15 @@ main {
 }
 
 #container_board {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 500px;
     height: 500px;
     margin: 0 auto;
 }
+
+#container_overlay
 
 .box {
     min-height: 20px;
