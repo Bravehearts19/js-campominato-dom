@@ -32,6 +32,7 @@ function getCellsNumber(level) {
     return result;
 }
 
+
 /**
  * 
  * @param {number} cellsNumber 
@@ -69,7 +70,6 @@ function generateFlowerNumber(flowersNumber, cellsNumber) {
     return flowerCells;
 }
 
-
 /**
  * 
  * @param {number} i
@@ -93,6 +93,7 @@ function generateSingleCell(i, cellSize) {
 
 /**
  * 
+ * @param {Event} event
  */
 function onSingleCellClick(event) {
     const i = parseInt(event.target.innerText);
@@ -118,6 +119,10 @@ function onSingleCellClick(event) {
     }
 }
 
+/**
+ * 
+ * @param {number} clickedCellsNumber 
+ */
 function setOverlayLose(clickedCellsNumber) {
     const overlay = document.createElement("div");
     overlay.classList.add("container_overlay");
@@ -130,6 +135,10 @@ function setOverlayLose(clickedCellsNumber) {
     boardContainer.append(overlay);
 }
 
+/**
+ * 
+ * @param {number} clickedCellsNumber 
+ */
 function setOverlayWin(clickedCellsNumber) {
     const overlay = document.createElement("div");
     overlay.classList.add("container_overlay", "container_overlay_win");
@@ -142,6 +151,11 @@ function setOverlayWin(clickedCellsNumber) {
     boardContainer.append(overlay);
 }
 
+/**
+ * 
+ * @param {number} totalCells 
+ * @param {number} allCells 
+ */
 function displayAllFlowerCells(totalCells, allCells) {
     for (let i = 0; i < totalCells; i++) {
         const singleCell = allCells[i];
@@ -156,7 +170,6 @@ function displayAllFlowerCells(totalCells, allCells) {
     }
 }
 
-
 /**
  * 
  * @param {number} minNumber - numero minimo da cui partire
@@ -169,7 +182,11 @@ function generateRandomNum(minNumber = 1, maxNumber = 10) {
     return numRandom;
 }
 
-
+/**
+ * 
+ * @param {Array} array 
+ * @returns {Array}
+ */
 function orderArray(array) {
 
 const arrayOrdinato = array.sort((a, b) => a - b);
