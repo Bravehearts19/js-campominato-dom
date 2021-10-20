@@ -43,6 +43,10 @@ main {
     text-align: center;
 }
 
+.container_overlay_win {
+    color: rgb(26, 238, 26);
+}
+
 .box {
     min-height: 20px;
     color: black;

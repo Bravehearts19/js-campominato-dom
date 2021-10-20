@@ -100,7 +100,7 @@ function onSingleCellClick(event) {
     let clickedCellsNumber = document.querySelectorAll(".clicked").length;
     const totalCells = document.querySelectorAll(".box").length;
     const allCells = document.querySelectorAll(".box");
-    const safeCells = totalCells - flowerCells.lenght;
+    const safeCells = totalCells - flowerCells.length;
 
     if(isFlower) {
         this.classList.add("flower");
@@ -132,7 +132,7 @@ function setOverlayLose(clickedCellsNumber) {
 
 function setOverlayWin(clickedCellsNumber) {
     const overlay = document.createElement("div");
-    overlay.classList.add("container_overlay");
+    overlay.classList.add("container_overlay", "container_overlay_win");
 
     const overlayText = document.createElement("p");
     overlayText.classList.add("m-0");
