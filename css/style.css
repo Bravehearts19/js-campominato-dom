@@ -27,7 +27,21 @@ main {
     margin: 0 auto;
 }
 
-#container_overlay
+.container_overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: 900;
+    text-align: center;
+}
 
 .box {
     min-height: 20px;

@@ -96,14 +96,40 @@ function generateSingleCell(i, cellSize) {
  */
 function onSingleCellClick(event) {
     const i = parseInt(event.target.innerText);
-
     const isFlower = flowerCells.includes(i);
+    let clickedCellsNumber = document.querySelectorAll(".clicked").length;
+    const totalCells = document.querySelectorAll(".box").length;
+    const safeCells = totalCells - flowerCells.lenght;
 
     if(isFlower) {
         this.classList.add("flower");
+        
+        setOverlayLose(clickedCellsNumber);
     } else {
         this.classList.add("clicked");
+        clickedCellsNumber++;
+
+        if(clickedCellsNumber ===  safeCells) {
+            setOverlayWin();
+        }
     }
+}
+
+function setOverlayLose(clickedCellsNumber) {
+    const overlay = document.createElement("div");
+    overlay.classList.add("container_overlay");
+
+    const overlayText = document.createElement("p");
+    overlayText.classList.add("m-0");
+    overlayText.textContent = `La partita è terminata, hai perso totalizzando ${clickedCellsNumber} punti!`;
+    
+    overlay.append(overlayText);
+    boardContainer.append(overlay);
+}
+
+function setOverlayWin() {
+    setOverlayLose(clickedCellsNumber);
+    overlayText.textContent = `La partita è terminata, hai vinto totalizzando ${clickedCellsNumber} punti!`;
 }
 
 
