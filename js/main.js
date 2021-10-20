@@ -55,15 +55,17 @@ function generateFlowerNumber(flowersNumber, cellsNumber) {
     let flowerCells = [];
 
     while(flowerCells.lenght < flowersNumber) {
-        const flowerCellIndex = Math.floor(Math.random * cellsNumber) + 1;
+        const flowerCellIndex = generateRandomNum(1, cellsNumber);
         let indexExistInArray = flowerCells.includes(flowerCellIndex);
 
-        if (indexExistInArray === false) {
+        if (!indexExistInArray) {
             flowerCells.push(flowerCellIndex);
         }
     }
 
-    console.log(flowersNumber, flowersNumber.length);
+    console.log("Questo è il vettore delle flowerCells", flowerCells);
+    console.log("Questo è la lunghezza del vettore delle flowerCells", flowerCells.lenght);
+
     return flowerCells;
 }
 
@@ -109,3 +111,16 @@ function generateSingleCell(i, cellSize) {
         this.classList.add("clicked");
     }
 } */
+
+
+/**
+ * 
+ * @param {number} minNumber - numero minimo da cui partire
+ * @param {number} maxNumber - numero massimo possibile 
+ * @returns {number}
+ */
+ function generateRandomNum(minNumber = 1, maxNumber = 10) {
+    const numRandom = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
+  
+    return numRandom;
+  }
