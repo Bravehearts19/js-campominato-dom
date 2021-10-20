@@ -99,12 +99,25 @@ function onSingleCellClick(event) {
     const isFlower = flowerCells.includes(i);
     let clickedCellsNumber = document.querySelectorAll(".clicked").length;
     const totalCells = document.querySelectorAll(".box").length;
+    const allCells = document.querySelectorAll(".box");
     const safeCells = totalCells - flowerCells.lenght;
 
     if(isFlower) {
         this.classList.add("flower");
         
         setOverlayLose(clickedCellsNumber);
+
+        for (let i = 0; i < totalCells; i++) {
+            const singleCell = allCells[i];
+
+           for (let i = 0; i < flowerCells.length; i++) {
+               const indexFlower = flowerCells[i];
+               
+               if(parseInt(singleCell.textContent) === indexFlower) {
+                   singleCell.classList.add("flower")
+               }
+           }
+        }
     } else {
         this.classList.add("clicked");
         clickedCellsNumber++;
