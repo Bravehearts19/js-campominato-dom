@@ -40,6 +40,11 @@ main {
     background-color: #6495ed;
 }
 
+.flower {
+    color: black;
+    background-color: #a00d0d;
+}
+
 .padding_main {
     padding-top: 80px;
     padding-bottom: 80px;
